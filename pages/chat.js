@@ -1,5 +1,6 @@
 import { Box, Text, TextField, Image, Button } from '@skynexui/components';
 import React, { useState } from 'react';
+import { IoSend } from "react-icons/io5";
 import appConfig from '../config.json';
 
 export default function ChatPage() {
@@ -15,7 +16,7 @@ export default function ChatPage() {
             id: listaDeMensagens.length + 1,
         };
 
-        setListaDeMensagens([mensagem,...listaDeMensagens]);
+        setListaDeMensagens([mensagem, ...listaDeMensagens]);
         setMensagem('');
     }
 
@@ -87,6 +88,21 @@ export default function ChatPage() {
                                 color: appConfig.theme.colors.neutrals[200],
                             }}
                         />
+                        <Button
+                            iconName="FaPaperPlane"
+                            buttonColors={{
+                                contrastColor: '#FFFFFF',
+                                mainColor: '#52667A',
+                            }}
+                            styleSheet={{
+                                marginBottom: '10px',
+                            
+                            }}
+                            onClick={() =>{
+                                handleNovaMensagem(mensagem);
+                            }}
+                        />
+
                     </Box>
                 </Box>
             </Box>
