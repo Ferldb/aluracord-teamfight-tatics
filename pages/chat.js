@@ -134,6 +134,7 @@ export default function ChatPage() {
                                     handleNovaMensagem(':sticker:' + sticker);
                                 }}
                             />
+                            
                         <Button
                             iconName="FaPaperPlane"
                             buttonColors={{
@@ -141,7 +142,13 @@ export default function ChatPage() {
                                 mainColor: '#52667A',
                             }}
                             styleSheet={{
-                                marginBottom: '10px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                minWidth: '50px',
+                                minHeight: '50px',
+                                fontSize: '16px',
+                                marginBottom: '8px',
                             }}
                             onClick={() =>{
                                 handleNovaMensagem(mensagem);
@@ -229,7 +236,16 @@ function MessageList(props) {
                                 {(new Date().toLocaleDateString())}
                             </Text>
                         </Box>
-                        {mensagem.texto.startsWith(':sticker:') ? (<Image src={mensagem.texto.replace(':sticker:','')}/>) : (mensagem.texto)}
+                        {mensagem.texto.startsWith(':sticker:') ? 
+                        (<Image 
+                            src={mensagem.texto.replace(':sticker:','')}
+                            styleSheet={{
+                                width: '150px',
+                                height: '150px',    
+                            }}
+                            
+                            />) 
+                        : (mensagem.texto)}
                     </Text>
                 );
             })}
